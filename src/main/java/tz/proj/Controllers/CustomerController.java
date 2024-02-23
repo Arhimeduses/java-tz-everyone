@@ -36,7 +36,7 @@ public class CustomerController {
     }
 
     @PostMapping("/newCredit/personalData")
-    public String saveCustomer(@ModelAttribute("customerDTO") Customer customer){
+    public String saveCustomer(@ModelAttribute("customer") Customer customer){
         customerService.saveCustomer(customer);
         return "redirect:/";
     }
