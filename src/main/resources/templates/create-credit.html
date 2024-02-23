@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang = "en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<section layout:fragment="body" class="py-5">
+    <div class="container px-5">
+        <form role="form" th:object="${customerDTO}" th:action="@{/newCredit/personalData}" method="post" class="row g-3">
+            <div class="col-12">
+                <h5>Контактная информация</h5>
+            </div>
+            <div class="col-md-4">
+                <label for="nameField" class="form-label">Фамилия</label>
+                <input
+                        id="surnameField"
+                        type="text"
+                        name="surname"
+                        th:field="*{surname}"
+                        class="form-control"
+                        placeholder="Иванов"
+                        aria-label="Фамилия">
+            </div>
+            <div class="col-md-4">
+                <label for="surnameField" class="form-label">Имя</label>
+                <input
+                        id="nameField"
+                        type="text"
+                        name="name"
+                        th:field="*{name}"
+                        class="form-control"
+                        placeholder="Иван"
+                        aria-label="Имя">
+            </div>
+            <div class="col-md-4">
+                <label for="secondNameField" class="form-label">Отчество</label>
+                <input
+                        id="secondNameField"
+                        type="text"
+                        name="secondName"
+                        th:field="*{secondName}"
+                        class="form-control"
+                        placeholder="Иванович"
+                        aria-label="Отчество">
+            </div>
+
+            <div class="col-md-6">
+                <label for="phoneField" class="form-label">Номер телефона</label>
+                <input
+                        type="tel"
+                        class="form-control"
+                        id="phoneField"
+                        name="phoneNumber"
+                        th:field="*{phoneNumber}"
+                        placeholder="+79999999999">
+            </div>
+            <div class="col-12">
+            </div>
+            <div class="col-md-4">
+                <label for="familyStateField" class="form-label">Семейное положение</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="familyStateField"
+                        name="familyState"
+                        th:field="*{familyState}"
+                        placeholder="Не женат">
+            </div>
+           <div class="col-md-4">
+               <label class="form-label" for="creditSumField">Сколько денег взять в кредит</label>
+               <input
+                       step="20000"
+                       type="number"
+                       id="creditSumField"
+                       value="20000"
+                       class="form-control"
+                       name="creditSum"
+                       th:field="*{creditSum}"
+                       min="20000"
+                       max="1000000"/>
+           </div>
+
+            <div class="col-12">
+                <h5>Паспортные данные</h5>
+            </div>
+            <div class="col-md-3">
+                <label for="passportSerialField" class="form-label">Серия паспорта</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="passportSerialField"
+                        name="series"
+                        th:value="*{passport.series}"
+                        placeholder="1815">
+            </div>
+            <div class="col-md-3">
+                <label for="passportNumberField" class="form-label">Номер паспорта</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="passportNumberField"
+                        name="number"
+                        th:value="*{passport.number}"
+                        placeholder="126782">
+            </div>
+
+            <div class="col-12">
+                <h5>Адрес прописки</h5>
+            </div>
+            <div class="col-md-3">
+                <label for="cityField" class="form-label">Город</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="cityField"
+                        placeholder="Волгоград">
+            </div>
+            <div class="col-md-4">
+                <label for="streetField" class="form-label">Улица</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="streetField"
+                        placeholder="Аллавердынская">
+            </div>
+            <div class="col-md-1">
+                <label for="houseField" class="form-label">Дом</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="houseField"
+                        placeholder="2">
+            </div>
+            <div class="col-md-1">
+                <label for="apartmentField" class="form-label">Квартира</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="apartmentField"
+                        placeholder="32">
+            </div>
+
+            <div class="col-12">
+                <h5>Сведения о работе</h5>
+            </div>
+            <div class="col-4">
+                <label for="organizationField" class="form-label">Место работы</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="organizationField"
+                        placeholder="Аксиоматика">
+            </div>
+            <div class="col-4">
+                <label for="positionField" class="form-label">Должность</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="positionField"
+                        placeholder="Гений-Программист">
+            </div>
+            <div class="col-4">
+                <label for="workingPeriodField" class="form-label">Сколько уже работаете (в месяцах)</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="workingPeriodField"
+                        placeholder="6">
+            </div>
+            <div class="text-center mb-5">
+                <div class="col-12">
+                    <button id="nextStep1" type="submit" class="btn btn-primary">Взять кредит</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+</body>
+</html>
